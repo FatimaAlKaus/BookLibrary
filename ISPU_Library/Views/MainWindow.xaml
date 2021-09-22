@@ -1,0 +1,43 @@
+﻿<Window x:Class="ISPU_Library.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ISPU_Library"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800"     
+        DataContext="{Binding MainViewModel, Source={StaticResource VML} }"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <VirtualizingStackPanel>
+            <TextBox Height="50"/>
+            <TextBox Height="50"/>
+        </VirtualizingStackPanel>
+        
+        <ListBox SelectedItem="{Binding SelectedBook, Mode=TwoWay}" Grid.Column="1" Grid.RowSpan="2" ItemsSource="{Binding Books}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock FontSize="18" Text="{Binding Title}"></TextBlock>
+                        <TextBlock FontSize="14" Text="{Binding Author}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="{Binding SelectedBook.Title}"></TextBlock>
+            <TextBlock Text="{Binding SelectedBook.Author}"></TextBlock>
+            <TextBlock Text="{Binding SelectedBook.PublishingDate, Converter={StaticResource DateTimeToDateConverter}}"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>
