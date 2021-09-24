@@ -1,2 +1,14 @@
 /.git
 /.vs
+/Application/bin
+/Application/obj
+
+/Domain/bin
+/Domain/obj
+
+/Infrastructure/bin
+/Infrastructure/obj
+
+/ISPU_Library/bin
+/ISPU_Library/obj
+/ISPU_Library/.vs
