@@ -3,6 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using DevExpress.Mvvm;
 using Application.DTO;
+using System.Linq;
+using System;
 
 namespace ISPU_Library
 {

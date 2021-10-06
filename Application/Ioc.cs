@@ -26,7 +26,6 @@ namespace Application
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddSingleton<MainViewModel>();
-
             provider = services.BuildServiceProvider();
         }
     }
